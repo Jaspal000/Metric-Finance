@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
+    
+    /* Brand Colors */
+    --navy: 222 47% 11%;
+    --accent-blue: 217 91% 60%;
+    --electric-blue: 217 91% 60%;
+    --navy-rgb: 15 23 42;
+    --accent-blue-rgb: 37 99 235;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-size: 112.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .metric-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .metric-section {
+    @apply py-16 md:py-24;
+  }
+  
+  .metric-card {
+    @apply bg-white rounded-lg border border-slate-200 shadow-sm;
+  }
+  
+  .metric-input {
+    @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+  }
+  
+  .metric-btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2;
+  }
+  
+  .metric-btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-medium border border-slate-200 hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200;
+  }
+  
+  .metric-btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700;
+  }
+  
+  /* Calculator card hover glow */
+  .calculator-card {
+    @apply relative bg-white rounded-xl border border-slate-200 p-6 transition-all duration-300;
+  }
+  
+  .calculator-card:hover {
+    @apply border-[#2563eb];
+    box-shadow: 0 0 0 1px #2563eb, 0 4px 20px -4px rgba(37, 99, 235, 0.25);
+  }
+  
+  /* Category badge */
+  .category-badge {
+    @apply absolute top-4 right-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full;
+  }
+  
+  /* Regional tab styles */
+  .region-tab {
+    @apply flex flex-col items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer;
+  }
+  
+  .region-tab:hover {
+    @apply bg-slate-100;
+  }
+  
+  .region-tab.active {
+    @apply bg-blue-50 ring-2 ring-blue-500 ring-offset-2;
+  }
+  
+  /* Scrollbar hide for mobile tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Dropdown bridge (invisible padding to prevent flicker) */
+  .dropdown-bridge {
+    @apply absolute -bottom-2.5 left-0 right-0 h-2.5 bg-transparent;
+  }
+  
+  /* Fade transition for calculator grid */
+  .fade-transition {
+    @apply transition-opacity duration-200;
+  }
+  
+  .fade-in {
+    @apply opacity-100;
+  }
+  
+  .fade-out {
+    @apply opacity-0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar for desktop */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
